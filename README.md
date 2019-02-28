@@ -1,5 +1,7 @@
 # React Style
 
+[![Build Status](https://travis-ci.org/webNeat/react-style.svg?branch=master)](https://travis-ci.org/webNeat/react-style)
+
 A simple way to add CSS classes to React components.
 
 - This **is not** a CSS framework!
