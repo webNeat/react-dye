@@ -1,11 +1,11 @@
 {
-  "name": "react-style",
+  "name": "react-dye",
   "version": "1.0.0",
   "description": "A simple way to add CSS classes to React components.",
   "main": "index.js",
   "scripts": {
-    "build": "babel style.ts > index.js",
-    "test": "babel style.ts > index.js && jest"
+    "build": "babel dye.ts > index.js",
+    "test": "babel dye.ts > index.js && jest"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webNeat/react-style.git"
+    "url": "git+https://github.com/webNeat/react-dye.git"
   },
   "keywords": [
     "react",
@@ -44,7 +44,7 @@
   "author": "Amine Ben hammou",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/webNeat/react-style/issues"
+    "url": "https://github.com/webNeat/react-dye/issues"
   },
-  "homepage": "https://github.com/webNeat/react-style#readme"
+  "homepage": "https://github.com/webNeat/react-dye#readme"
 }

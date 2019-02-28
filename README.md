@@ -1,6 +1,6 @@
-# React Style
+# React Dye
 
-[![Build Status](https://travis-ci.org/webNeat/react-style.svg?branch=master)](https://travis-ci.org/webNeat/react-style)
+[![Build Status](https://travis-ci.org/webNeat/react-dye.svg?branch=master)](https://travis-ci.org/webNeat/react-dye)
 
 A simple way to add CSS classes to React components.
 
@@ -11,9 +11,9 @@ A simple way to add CSS classes to React components.
 ## Installation
 
 ```
-npm i react-style
+npm i react-dye
 // or
-yarn add react-style
+yarn add react-dye
 ```
 
 ## Usage examples
@@ -37,7 +37,7 @@ const MyComponent = () => (
 **After**
 
 ```jsx
-import style from 'react-style'
+import dye from 'react-dye'
 
 const MyComponent = () => (
   <Container>
@@ -49,10 +49,10 @@ const MyComponent = () => (
   </Container>
 )
 
-const Container = style('container centered')
-const InlineForm = style('inline-form with-border', 'form')
-const LargeInput = style('large-input rounded', 'input')
-const PrimaryButton = style('button primary-button', 'button')
+const Container = dye('container centered')
+const InlineForm = dye('inline-form with-border', 'form')
+const LargeInput = dye('large-input rounded', 'input')
+const PrimaryButton = dye('button primary-button', 'button')
 ```
 
 ### Composing CSS classes
@@ -75,7 +75,7 @@ const MyComponent = () => (
 **After**
 
 ```jsx
-import style from 'react-style'
+import dye from 'react-dye'
 
 const MyComponent = () => (
   <Fragment>
@@ -84,9 +84,9 @@ const MyComponent = () => (
   </Fragment>
 )
 
-const Button = style('button with-padding with-margin rounded', 'button')
-const DefaultButton = style('default-button', Button)
-const PrimaryButton = style('primary-button', Button)
+const Button = dye('button with-padding with-margin rounded', 'button')
+const DefaultButton = dye('default-button', Button)
+const PrimaryButton = dye('primary-button', Button)
 ```
 
 ### Dynamic CSS classes
@@ -120,7 +120,7 @@ const Button = ({beta, disabled, ...props}) => (
 
 ```jsx
 import classnames from 'classnames'
-import style from 'react-style'
+import dye from 'react-dye'
 
 const MyComponent = () => (
   <Fragment>
@@ -130,7 +130,7 @@ const MyComponent = () => (
   </Fragment>
 )
 
-const Button = style(
+const Button = dye(
   ({disabled, beta}) =>
     classnames('button with-padding with-margin rounded', {
       'beta-button': beta,
@@ -144,7 +144,7 @@ const Button = style(
 ## API Reference
 
 ```js
-function style(cssClasses, [Component, [...styleProps]])
+function dye(cssClasses, [Component, [...styleProps]])
 ```
 
 **cssClasses**: specifies the css classes to use. If it's a function, it will be called with the component's props and should return the css classes.

@@ -21,7 +21,7 @@ const omit = (attrs: string[], obj: object) => {
   return result
 }
 
-const style = (
+const dye = (
   cssClasses: string | ((props: object) => string),
   Component: undefined | string | ComponentType,
   ...styleProps: string[]
@@ -39,4 +39,4 @@ const style = (
   return StyledComponent
 }
 
-export default style
+export default dye

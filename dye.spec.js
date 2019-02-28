@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-testing-library'
-import style from './'
+import dye from './'
 
 const html = ui => render(ui).container.innerHTML
 const Foo = props => <div {...props}>Foo</div>
@@ -9,7 +9,7 @@ const Bar = props => <div {...props}>Bar</div>
 const compare = (a, b) => expect(html(a)).toEqual(html(b))
 
 test('adds classNames to component', () => {
-  const Styled = style('foo', Foo)
+  const Styled = dye('foo', Foo)
   compare(<Styled />, <Foo className="foo" />)
   compare(<Styled color="red" />, <Foo color="red" className="foo" />)
   compare(
@@ -19,19 +19,19 @@ test('adds classNames to component', () => {
 })
 
 test('uses div as default component', () => {
-  const Styled = style('foo bar')
+  const Styled = dye('foo bar')
   compare(<Styled color="red" />, <div color="red" className="foo bar" />)
 })
 
 test('generates classNames based on props', () => {
-  const Styled = style(({color}) => `foo ${color || 'blue'}`)
+  const Styled = dye(({color}) => `foo ${color || 'blue'}`)
   compare(<Styled color="red" />, <div color="red" className="foo red" />)
   compare(<Styled />, <div className="foo blue" />)
   compare(<Styled id="test" />, <div id="test" className="foo blue" />)
 })
 
 test('can omit some props', () => {
-  const Styled = style(({color}) => `foo ${color || 'blue'}`, 'button', 'color')
+  const Styled = dye(({color}) => `foo ${color || 'blue'}`, 'button', 'color')
   compare(<Styled color="red" />, <button className="foo red" />)
   compare(<Styled />, <button className="foo blue" />)
   compare(
@@ -41,12 +41,8 @@ test('can omit some props', () => {
 })
 
 test('can be composed', () => {
-  const Link = style(
-    ({size}) => `no-underline text-${size || 'md'}`,
-    'a',
-    'size'
-  )
-  const BoxLink = style(
+  const Link = dye(({size}) => `no-underline text-${size || 'md'}`, 'a', 'size')
+  const BoxLink = dye(
     ({color}) => `inline-block bg-${color || 'blue'}`,
     Link,
     'color'
