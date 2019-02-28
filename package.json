@@ -1,0 +1,50 @@
+{
+  "name": "react-style",
+  "version": "1.0.0",
+  "description": "A simple way to add CSS classes to React components.",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel style.ts > index.js",
+    "test": "babel style.ts > index.js && jest"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=15"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "@types/jest": "^23.3.11",
+    "@types/react": "^16.8.5",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-testing-library": "^5.4.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webNeat/react-style.git"
+  },
+  "keywords": [
+    "react",
+    "css",
+    "style",
+    "classname",
+    "ui-components"
+  ],
+  "author": "Amine Ben hammou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webNeat/react-style/issues"
+  },
+  "homepage": "https://github.com/webNeat/react-style#readme"
+}

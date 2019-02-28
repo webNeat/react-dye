@@ -6,7 +6,7 @@ A simple way to add CSS classes to React components.
 - This **is not** a way to generate CSS by writing JS code!
 - This **is** a simple function to avoid writing `className` in JSX.
 
-# Installation
+## Installation
 
 ```
 npm i react-style
@@ -14,11 +14,12 @@ npm i react-style
 yarn add react-style
 ```
 
-# Usage examples
+## Usage examples
 
-## Replacing simple tags with custom components
+### Replacing simple tags with custom components
 
 **Before**
+
 ```jsx
 const MyComponent = () => (
   <div className="container centered">
@@ -32,6 +33,7 @@ const MyComponent = () => (
 ```
 
 **After**
+
 ```jsx
 import style from 'react-style'
 
@@ -51,15 +53,19 @@ const LargeInput = style('large-input rounded', 'input')
 const PrimaryButton = style('button primary-button', 'button')
 ```
 
-## Composing CSS classes
+### Composing CSS classes
 
 **Before**
 
 ```jsx
 const MyComponent = () => (
   <Fragment>
-    <button className="button with-padding with-margin rounded default-button">Cancel</button>
-    <button className="button with-padding with-margin rounded primary-button">Confirm</button>
+    <button className="button with-padding with-margin rounded default-button">
+      Cancel
+    </button>
+    <button className="button with-padding with-margin rounded primary-button">
+      Confirm
+    </button>
   </Fragment>
 )
 ```
@@ -81,7 +87,7 @@ const DefaultButton = style('default-button', Button)
 const PrimaryButton = style('primary-button', Button)
 ```
 
-## Dynamic CSS classes
+### Dynamic CSS classes
 
 **Before**
 
@@ -97,12 +103,12 @@ const MyComponent = () => (
 )
 
 const Button = ({beta, disabled, ...props}) => (
-  <button 
+  <button
     className={classnames('button with-padding with-margin rounded', {
       'beta-button': beta,
       'disabled-button': disabled
     })}
-    disabled={disabled} 
+    disabled={disabled}
     {...props}
   />
 )
@@ -123,11 +129,28 @@ const MyComponent = () => (
 )
 
 const Button = style(
-  ({disabled, beta}) => classnames('button with-padding with-margin rounded', {
-    'beta-button': beta,
-    'disabled-button': disabled
-  }),
-  'button', 
-  'beta'  // this prop is not passed to 'button'
+  ({disabled, beta}) =>
+    classnames('button with-padding with-margin rounded', {
+      'beta-button': beta,
+      'disabled-button': disabled
+    }),
+  'button',
+  'beta' // this prop is not passed to 'button'
 )
 ```
+
+## API Reference
+
+```js
+function style(cssClasses, [Component, [...styleProps]])
+```
+
+**cssClasses**: specifies the css classes to use. If it's a function, it will be called with the component's props and should return the css classes.
+
+**Component**: the component can be a string (like `'input'`) or a React component. The default value is `'div'`.
+
+**styleProps**: the props which are only used to generate the css classes. They will not be passed to the component.
+
+## Contributing
+
+Feel free to open issues or submit Pull requests :D
