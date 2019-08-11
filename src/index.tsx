@@ -28,18 +28,18 @@ interface BasicProps {
 }
 
 function dye<P extends BasicProps>(
-  cssClasses: string | ((props: object) => string),
+  cssClasses: string | ((props: any) => string),
   Component: string | React.ComponentType<P> = 'div',
   ...styleProps: string[]
 ): React.ComponentType<any> {
   const StyledComponent = (props: P) => {
     let newClassName: string = isFunction(cssClasses) ? (cssClasses as Function)(props) : cssClasses
     if (props.className) newClassName += ` ${props.className}`
-    props = {
+    const newProps = {
       ...omit(['children', ...styleProps], props) as P,
       className: newClassName
     }
-    return React.createElement(Component, props, props.children)
+    return React.createElement(Component, newProps, props.children)
   }
   return StyledComponent
 }
