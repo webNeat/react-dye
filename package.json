@@ -1,34 +1,46 @@
 {
   "name": "react-dye",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A simple way to add CSS classes to React components.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/react-dye.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "babel dye.ts > index.js",
-    "test": "babel dye.ts > index.js && jest"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --env=jsdom"
   },
-  "dependencies": {},
   "peerDependencies": {
-    "react": ">=15"
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
-    "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.2.3",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/preset-typescript": "^7.1.0",
-    "@babel/register": "^7.0.0",
-    "@types/jest": "^23.3.11",
-    "@types/react": "^16.8.5",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "jest": "^23.6.0",
-    "prettier": "^1.15.3",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-testing-library": "^5.4.4"
+    "@types/jest": "^24.0.17",
+    "@types/react": "^16.9.1",
+    "@types/react-dom": "^16.8.5",
+    "@types/react-test-renderer": "^16.9.0",
+    "husky": "^3.0.3",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-test-renderer": "^16.9.0",
+    "tsdx": "^0.7.2",
+    "tslib": "^1.10.0",
+    "typescript": "^3.5.3"
   },
   "repository": {
     "type": "git",
