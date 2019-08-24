@@ -1,11 +1,14 @@
 import * as React from 'react';
-import { create } from 'react-test-renderer'
+// import '@testing-library/jest-dom/extend-expect'
+import { render, fireEvent, cleanup } from '@testing-library/react'
 import dye from '../src'
 
-const html = (ui: JSX.Element) => create(ui).toJSON()
+afterEach(cleanup)
+
+const html = (ui: JSX.Element) => render(ui).container.innerHTML
 const Foo = (props: any) => <div {...props}>Foo</div>
 
-const compare = (a: any, b: any) => expect(html(a)).toEqual(html(b))
+const compare = (a: JSX.Element, b: JSX.Element) => expect(html(a)).toEqual(html(b))
 
 test('adds classNames to component', () => {
   const Styled = dye('foo', Foo)
@@ -62,4 +65,13 @@ test('can be composed', () => {
     <BoxLink href="#" />,
     <a href="#" className="no-underline text-md inline-block bg-blue" />
   )
+})
+
+test('forwards ref', async () => {
+  const Input = dye('fancy', 'input')
+  const ref = React.createRef()
+  const { getByTestId } = render(<Input data-testid="input" ref={ref} />)
+  fireEvent.change(getByTestId('input'), { target: { value: 'some text' } })
+  expect(ref.current).not.toBe(null)
+  expect((ref.current as HTMLInputElement).value).toBe('some text')
 })

@@ -36,8 +36,8 @@ function dye<P extends BasicProps>(
     let newClassName: string = isFunction(cssClasses) ? (cssClasses as Function)(props) : cssClasses
     if (props.className) newClassName += ` ${props.className}`
     const newProps = {
-      ref,
       ...omit(['children', ...styleProps], props) as P,
+      ref,
       className: newClassName
     }
     return React.createElement(Component, newProps, props.children)
