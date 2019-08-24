@@ -32,15 +32,16 @@ function dye<P extends BasicProps>(
   Component: string | React.ComponentType<P> = 'div',
   ...styleProps: string[]
 ): React.ComponentType<any> {
-  const StyledComponent = (props: P) => {
+  const StyledComponent = React.forwardRef((props: P, ref) => {
     let newClassName: string = isFunction(cssClasses) ? (cssClasses as Function)(props) : cssClasses
     if (props.className) newClassName += ` ${props.className}`
     const newProps = {
+      ref,
       ...omit(['children', ...styleProps], props) as P,
       className: newClassName
     }
     return React.createElement(Component, newProps, props.children)
-  }
+  })
   return StyledComponent
 }
 
