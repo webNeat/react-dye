@@ -18,7 +18,7 @@ describe('dye', () => {
   it('adds classNames to component', () => {
     const Styled = dye('foo', Foo)
     compare(<Styled />, <Foo className="foo" />)
-    compare(<Styled />, <Foo color="red" className="foo" />)
+    compare(<Styled color="red" />, <Foo color="red" className="foo" />)
     compare(<Styled color="red" className="bar" />, <Foo color="red" className="foo bar" />)
   })
 

@@ -1,6 +1,6 @@
 {
   "name": "react-dye",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "A simple way to add CSS classes to React components.",
   "main": "dist/index.js",
   "module": "dist/react-dye.esm.js",

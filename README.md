@@ -2,12 +2,14 @@
 
 A simple way to add CSS classes to React components.
 
-[![Bundle size](https://img.shields.io/bundlephobia/minzip/react-dye?style=flat-square)](https://bundlephobia.com/result?p=react-dye)
+[![Bundle size](https://img.shields.io/bundlephobia/minzip/react-dye?style=flat-square)](https://bundlephobia.com/result?p=react-dye@latest)
 [![Tests Status](https://img.shields.io/github/workflow/status/webneat/react-dye/Tests?style=flat-square)](https://github.com/webneat/react-dye/actions?query=workflow:"Tests")
 [![Coverage Status](https://img.shields.io/coveralls/github/webNeat/react-dye/master?style=flat-square)](https://coveralls.io/github/webNeat/react-dye?branch=master)
 [![Rank](https://img.shields.io/librariesio/sourcerank/npm/react-dye?style=flat-square)](https://libraries.io/npm/react-dye)
 [![Version](https://img.shields.io/npm/v/react-dye?style=flat-square)](https://www.npmjs.com/package/react-dye)
 [![MIT](https://img.shields.io/npm/l/react-dye?style=flat-square)](LICENSE)
+
+## What is this?
 
 - This **is not** a CSS framework!
 - This **is not** a way to generate CSS by writing JS code!
@@ -67,12 +69,8 @@ const PrimaryButton = dye('button primary-button', 'button')
 ```jsx
 const MyComponent = () => (
   <Fragment>
-    <button className="button with-padding with-margin rounded default-button">
-      Cancel
-    </button>
-    <button className="button with-padding with-margin rounded primary-button">
-      Confirm
-    </button>
+    <button className="button with-padding with-margin rounded default-button">Cancel</button>
+    <button className="button with-padding with-margin rounded primary-button">Confirm</button>
   </Fragment>
 )
 ```
@@ -109,7 +107,7 @@ const MyComponent = () => (
   </Fragment>
 )
 
-const Button = ({ beta, disabled, ...props }) => (
+const Button = ({beta, disabled, ...props}) => (
   <button
     className={classnames('button with-padding with-margin rounded', {
       'beta-button': beta,
@@ -136,7 +134,7 @@ const MyComponent = () => (
 )
 
 const Button = dye(
-  ({ disabled, beta }) =>
+  ({disabled, beta}) =>
     classnames('button with-padding with-margin rounded', {
       'beta-button': beta,
       'disabled-button': disabled,
