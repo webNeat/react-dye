@@ -1,8 +1,13 @@
 # React Dye
 
-[![Build Status](https://travis-ci.org/webNeat/react-dye.svg?branch=master)](https://travis-ci.org/webNeat/react-dye)
-
 A simple way to add CSS classes to React components.
+
+[![Bundle size](https://img.shields.io/bundlephobia/minzip/react-dye?style=flat-square)](https://bundlephobia.com/result?p=react-dye)
+[![Tests Status](https://img.shields.io/github/workflow/status/webneat/react-dye/Tests?style=flat-square)](https://github.com/webneat/react-dye/actions?query=workflow:"Tests")
+[![Coverage Status](https://img.shields.io/coveralls/github/webNeat/react-dye/master?style=flat-square)](https://coveralls.io/github/webNeat/react-dye?branch=master)
+[![Rank](https://img.shields.io/librariesio/sourcerank/npm/react-dye?style=flat-square)](https://libraries.io/npm/react-dye)
+[![Version](https://img.shields.io/npm/v/react-dye?style=flat-square)](https://www.npmjs.com/package/react-dye)
+[![MIT](https://img.shields.io/npm/l/react-dye?style=flat-square)](LICENSE)
 
 - This **is not** a CSS framework!
 - This **is not** a way to generate CSS by writing JS code!
@@ -104,11 +109,11 @@ const MyComponent = () => (
   </Fragment>
 )
 
-const Button = ({beta, disabled, ...props}) => (
+const Button = ({ beta, disabled, ...props }) => (
   <button
     className={classnames('button with-padding with-margin rounded', {
       'beta-button': beta,
-      'disabled-button': disabled
+      'disabled-button': disabled,
     })}
     disabled={disabled}
     {...props}
@@ -131,10 +136,10 @@ const MyComponent = () => (
 )
 
 const Button = dye(
-  ({disabled, beta}) =>
+  ({ disabled, beta }) =>
     classnames('button with-padding with-margin rounded', {
       'beta-button': beta,
-      'disabled-button': disabled
+      'disabled-button': disabled,
     }),
   'button',
   'beta' // this prop is not passed to 'button'

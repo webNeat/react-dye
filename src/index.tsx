@@ -1,48 +1,26 @@
-import * as React from 'react'
+import React from 'react'
+import {isFunction, omit, StrMap} from './internals'
 
-type HashMap = { [key: string]: any }
+type ComponentType<P> = keyof JSX.IntrinsicElements | React.ComponentType<P>
+type PropsOf<T extends any> = T extends keyof JSX.IntrinsicElements
+  ? JSX.IntrinsicElements[T]
+  : T extends React.ComponentType<infer P>
+  ? P
+  : never
 
-const isFunction = (x: any) =>
-  'Function' == Object.prototype.toString.call(x).slice(8, -1)
-
-const omit = (attrs: string[], obj: HashMap) => {
-  if (attrs.length == 0) {
-    return obj
-  }
-  const result: HashMap = {}
-  const index: HashMap = {}
-  for (const name of attrs) {
-    index[name] = true
-  }
-  for (const name in obj) {
-    if (!index[name]) {
-      result[name] = obj[name]
-    }
-  }
-  return result
-}
-
-interface BasicProps {
-  className: string
-  children: React.ReactNode
-}
-
-function dye<P extends BasicProps>(
-  cssClasses: string | ((props: any) => string),
-  Component: string | React.ComponentType<P> = 'div',
-  ...styleProps: string[]
-): React.ComponentType<any> {
-  const StyledComponent = React.forwardRef((props: P, ref) => {
+export default function dye<C extends ComponentType<{}> = 'div', SP extends StrMap = {}>(
+  cssClasses: string | ((props: PropsOf<C> & SP) => string),
+  Component?: C,
+  ...styleProps: Array<keyof SP>
+) {
+  return React.forwardRef((props: PropsOf<C> & SP, ref) => {
     let newClassName: string = isFunction(cssClasses) ? (cssClasses as Function)(props) : cssClasses
     if (props.className) newClassName += ` ${props.className}`
     const newProps = {
-      ...omit(['children', ...styleProps], props) as P,
+      ...omit(['children', ...styleProps], props),
       ref,
-      className: newClassName
+      className: newClassName,
     }
-    return React.createElement(Component, newProps, props.children)
+    return React.createElement(Component || 'div', newProps as any, props.children)
   })
-  return StyledComponent
 }
-
-export default dye
