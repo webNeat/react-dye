@@ -1,6 +1,6 @@
 {
   "name": "react-dye",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "A simple way to add CSS classes to React components.",
   "main": "dist/index.js",
   "module": "dist/react-dye.esm.js",
@@ -35,16 +35,16 @@
   },
   "homepage": "https://github.com/webNeat/react-dye#readme",
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.0.4",
-    "@types/jest": "^26.0.14",
-    "@types/react": "^16.9.49",
-    "@types/react-dom": "^16.9.8",
-    "prettier": "^2.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "tsdx": "^0.14.0",
-    "tslib": "^2.0.1",
-    "typescript": "^3.9.7"
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.0.2",
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typescript": "^3.9.10"
   }
 }
