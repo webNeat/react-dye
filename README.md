@@ -2,8 +2,10 @@
 
 A simple way to add CSS classes to React components.
 
+**A total rewrite of this library is in progress, it will make version 3 much better**
+
 [![Bundle size](https://img.shields.io/bundlephobia/minzip/react-dye?style=flat-square)](https://bundlephobia.com/result?p=react-dye@latest)
-[![Tests Status](https://img.shields.io/github/workflow/status/webneat/react-dye/Tests?style=flat-square)](https://github.com/webneat/react-dye/actions?query=workflow:"Tests")
+[![Tests Status](https://img.shields.io/github/actions/workflow/status/webneat/react-dye/tests.yml?branch=master&style=flat-square)](https://github.com/webneat/react-tidy/actions?query=workflow:"Tests")
 [![Coverage Status](https://img.shields.io/coveralls/github/webNeat/react-dye/master?style=flat-square)](https://coveralls.io/github/webNeat/react-dye?branch=master)
 [![Rank](https://img.shields.io/librariesio/sourcerank/npm/react-dye?style=flat-square)](https://libraries.io/npm/react-dye)
 [![Version](https://img.shields.io/npm/v/react-dye?style=flat-square)](https://www.npmjs.com/package/react-dye)
