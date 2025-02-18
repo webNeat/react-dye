@@ -1,26 +1,8 @@
 {
-  "include": ["src", "types"],
+  "extends": "@total-typescript/tsconfig/bundler/dom/library",
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "lib": ["dom", "esnext"],
-    "importHelpers": true,
-    "declaration": true,
-    "sourceMap": true,
-    "rootDir": "./src",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "jsx": "react",
-    "esModuleInterop": true
-  }
+    "jsx": "react-jsx",
+    "types": ["vitest/importMeta"]
+  },
+  "exclude": ["node_modules", "dist", "playground"]
 }

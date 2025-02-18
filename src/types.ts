@@ -1,19 +1,28 @@
-import React from 'react'
+import type React from 'react'
 
-export type TagName = keyof JSX.IntrinsicElements
-export type Component<P> = React.FC<P> | React.ComponentClass<P> | TagName
+export type ClassValue = string | undefined | null | false
 
-export type Props<C extends Component<any>> = C extends TagName
-  ? JSX.IntrinsicElements[C]
-  : C extends React.FC<infer P>
-  ? P
-  : C extends React.ComponentClass<infer P>
-  ? P
-  : never
+export type Config = {
+  mergeClasses: (classes: ClassValue[]) => string
+}
 
-export type DefaultProps = {className?: string; children?: any}
+export type HtmlComponent = React.ElementType<{ className?: string }> & string
 
-export interface DyeComponent<C extends Component<DefaultProps>, Variants extends Record<string, string>>
-  extends React.FC<Props<C> & {variant?: keyof Variants}> {
-  as<D extends Component<DefaultProps>>(x: D): DyeComponent<D, Variants>
+export interface Dye<Variants extends string = never> {
+  <Component extends HtmlComponent>(classes: string, Component?: Component): DyeComponent<Component, Variants>
+  <Component extends HtmlComponent, AdditionalVariants extends string = never>(
+    classes: string,
+    variants?: Record<AdditionalVariants, string>,
+    Component?: Component,
+  ): DyeComponent<Component, Variants | AdditionalVariants>
+}
+
+export type DyeComponent<Component extends HtmlComponent, Variants extends string = never> = React.ComponentType<
+  { variant?: Variants } & React.ComponentProps<Component>
+> & {
+  as: <NewComponent extends HtmlComponent>(Component: NewComponent) => DyeComponent<NewComponent, Variants>
+  extend: <AdditionalVariants extends string = never>(
+    additional_classes: string,
+    additional_variants?: Record<AdditionalVariants, string>,
+  ) => DyeComponent<Component, Variants | AdditionalVariants>
 }
