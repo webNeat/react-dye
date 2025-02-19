@@ -59,7 +59,7 @@ function App() {
 ## Features
 
 - Zero dependencies.
-- Lightweight (**~ 0.5kb** gzipped).
+- Lightweight (about **0.5kb** gzipped).
 - Create styled components with CSS classes (ideal when using TailwindCSS or similar).
 - Use variants to create different styles for the same component.
 - Extend existing components with additional classes/variants.
@@ -87,6 +87,8 @@ will render
 <h1 className="mb-2 text-2xl">content</h1>
 ```
 
+<hr>
+
 The `tag` is optional, and it defaults to `div`.
 
 ```tsx
@@ -97,6 +99,8 @@ will render
 ```html
 <div className="p-3 mb-4">content</div>
 ```
+
+<hr>
 
 You can pass additional CSS classes to the component using `className` and they will be added
 ```tsx
