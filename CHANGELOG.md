@@ -1,5 +1,11 @@
 # react-dye
 
+## 3.0.1
+
+### Patch Changes
+
+- [`169b552`](https://github.com/webNeat/react-dye/commit/169b552fcdc6292c1966064ea6d1fe38072c4a67) Thanks [@webNeat](https://github.com/webNeat)! - Allow React components as tags
+
 ## 3.0.0
 
 ### Major Changes
