@@ -6,7 +6,7 @@ export type Config = {
   mergeClasses: (classes: ClassValue[]) => string
 }
 
-export type HtmlComponent = React.ElementType<{ className?: string }> & string
+export type HtmlComponent = React.ElementType<{ className?: string }>
 
 export interface Dye<Variants extends string = never> {
   <Component extends HtmlComponent>(classes: string, Component?: Component): DyeComponent<Component, Variants>
